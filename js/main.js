@@ -153,20 +153,7 @@
     heroEl.innerHTML = mediaHtml;
     heroEl.classList.toggle('project-hero--auto', project.type === 'image' || project.type === 'video');
     heroEl.classList.toggle('project-hero--vertical', project.type === 'embed' && /facebook\.com\/reel\/|linkedin\.com/.test(project.embedUrl || ''));
-    heroEl.style.aspectRatio = '';
-
-    if (project.type === 'embed' && project.embedUrl) {
-      const wistiaId = (project.embedUrl.match(/wistia\.(?:com|net)\/(?:medias|embed(?:\/iframe)?)\/([a-zA-Z0-9]+)/) || [])[1];
-      if (wistiaId) {
-        fetch('https://fast.wistia.com/embed/medias/' + wistiaId + '.json')
-          .then(function (r) { return r.json(); })
-          .then(function (data) {
-            const ratio = data && data.media && data.media.aspectRatio;
-            if (ratio) heroEl.style.aspectRatio = String(ratio);
-          })
-          .catch(function () {});
-      }
-    }
+    heroEl.style.aspectRatio = project.heroRatio ? String(project.heroRatio) : '';
   }
 
   function initMobileNav() {
