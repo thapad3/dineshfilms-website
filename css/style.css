@@ -51,7 +51,7 @@
 
 /* ---------- Reset ---------- */
 *, *::before, *::after { box-sizing: border-box; }
-html { -webkit-text-size-adjust: 100%; }
+html { -webkit-text-size-adjust: 100%; scrollbar-gutter: stable; }
 body {
   margin: 0;
   background: var(--color-bg);
@@ -546,7 +546,7 @@ button { font: inherit; color: inherit; background: none; border: 0; cursor: poi
   border: 1px solid var(--color-border);
   background: var(--color-surface);
 }
-.about__portrait img { width: 100%; height: auto; filter: grayscale(1) contrast(1.05); }
+.about__portrait img { width: 100%; height: auto; aspect-ratio: 1365 / 2048; filter: grayscale(1) contrast(1.05); }
 
 .about__body { max-width: 62ch; }
 .about__bio { display: flex; flex-direction: column; gap: var(--space-4); font-size: 13px; font-style: italic; color: var(--color-text); }
